@@ -65,5 +65,38 @@ if(isSpresent){
             tempArr.push(contentArr[i]);
         }
     }
-    console.log(tempArr);
+    //console.log(tempArr);
+    contentArr=tempArr;
+}
+let finalOption="";
+let indexOfN=optionsArr.indexOf("-n");
+let indexOfB=optionsArr.indexOf("-b");
+//if -n or -b is not found ,-1 will be returned
+
+//if both are present
+if(indexOfN!=-1&&indexOfB!=-1){
+    if(indexOfN<indexOfB){
+        finalOption="-n";
+    }
+    else{
+        finalOption="-b";
+    }
+}
+
+//either -n or -b is present
+else{
+    if(indexOfN!=-1){
+        finalOption='-n';
+    }
+    else if(indexOfB!=-1){
+        finalOption="-b";
+    }
+}
+
+//calling of functions by evaluating finalOption
+if(finalOption=="-n"){
+    modifyContentByN();
+}
+else if(finalOption=="-b"){
+    modifyContentByB();
 }
