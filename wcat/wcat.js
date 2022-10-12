@@ -3,7 +3,8 @@
  // 3) node wcat.js -n file1 file2=>1.file1,2.file2
  // node wcat.js f1.txt
  // node wcat.js f1.txt f2.txt f3.txt
- const fs=require("fs")
+ const { count } = require("console");
+const fs=require("fs")
  let inputArr=process.argv.slice(2);
  console.log(inputArr);
 
@@ -48,6 +49,7 @@ let contentArr=content.split("\n");
 console.log(contentArr);
 
 //check if-> -s is present or not
+let tempArr=[];
 let isSpresent=optionsArr.includes("-s");
 if(isSpresent){
     for(let i=1;i<contentArr.length;i++){
@@ -59,7 +61,7 @@ if(isSpresent){
         }
     }
     console.table(contentArr);
-    let tempArr=[];
+    
     for(let i=0;i<contentArr.length;i++){
         if(contentArr[i]!=null){
             tempArr.push(contentArr[i]);
@@ -100,3 +102,19 @@ if(finalOption=="-n"){
 else if(finalOption=="-b"){
     modifyContentByB();
 }
+
+function modifyContentByN(){
+    for(let i=0;i<contentArr.length;i++){
+        contentArr[i]=(i+1) +")"+ contentArr[i];
+    }
+}
+function modifyContentByB(){
+    let count=1;
+    for(let i=0;i<contentArr.length;i++){
+        if(contentArr[i]!=""){
+            contentArr[i]=count+")"+contentArr[i];
+            count++;
+        }
+    }
+}
+console.log(contentArr);
