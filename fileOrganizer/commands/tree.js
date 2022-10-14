@@ -32,9 +32,9 @@ function treeHelper(targetPath, indent) {
     }
 }
 
-module.exports = {
-  tree: treeFn,
-};
+// module.exports = {
+//   tree: treeFn,
+// };
 
-// let srcPath="/Users/abhishekgoel/Desktop/Desktop/AbhishekGoel/FJP5/Node/"
-// treeFn(srcPath);
+let srcPath="//Users/himanshusengar/Desktop/Fjp-5/Node/fileOrganizer"
+treeFn(srcPath);
