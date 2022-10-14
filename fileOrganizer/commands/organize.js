@@ -10,20 +10,33 @@ let types={
 }
 
 function organize(srcPath){
+    //1.check if srcPath is present
     if(srcPath==undefined){
         // The process.cwd() method returns the current working directory of the Node.js process.
         srcPath=process.cwd();
         // console.log(srcPath);
     }
-    // else{
-        //  console.log(srcPath);
-    // }
+    //2. to create a directory ->organized_files
+    // let organizedFiles =srcPath +"/"+"organized_files";
     let organizedFiles=path.join(srcPath,"organized_files");
+    console.log("organized files folder path is",organizedFiles);
     if(!fs.existsSync(organizedFiles)){
+        //organizedFiles name ka folder exist nhi krta to ek folder bana do warna rehne do
         fs.mkdirSync(organizedFiles);
     }
-    else{
-        console.log("folder already exists");
+    else console.log("folder already exists");
+
+        //3.scan the entire srcPath(downloads folder in this case)
+    let allFiles =fs.readdirSync(srcPath);
+    //console.log(allFiles);
+
+
+        //4.traverse over all the files and classify them on the basis of their extension(.pdf,.mp3)
+    for(let i=0;i<allFiles.length;i++){
+        let ext=allFiles[i].split(".")[1];
+        console.log(ext);
     }
 }
-organize();
+let srcPath="/Users/himanshusengar/Desktop/Fjp-5/Node/fileOrganizer/downloads"
+
+organize(srcPath);
