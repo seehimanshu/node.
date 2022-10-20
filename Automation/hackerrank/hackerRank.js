@@ -1,7 +1,7 @@
 const puppeteer=require("puppeteer");
 
-let email="xikibid862@robhung.com";
-let password="pepcoding123";
+let email="";
+let password="";
 let {answer}=require("./code");
 let cTab;
 let browserOpenPromise=puppeteer.launch({
