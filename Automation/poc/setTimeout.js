@@ -27,8 +27,24 @@
 //     console.log(a);
 // }
 
-for(let i=1;i<=10;i++){
-    setTimeout(function(){
-        console.log(i);
-    },2000*i);
+// for(let i=1;i<=10;i++){
+//     setTimeout(function(){
+//         console.log(i);
+//     },2000*i);
+// }
+
+// for(var i=1;i<=10;i++){
+//     function outer(a){
+//         setTimeout(function(){
+//             console.log(a);
+//         },2000*a);
+//     }
+//     outer(i);
+// }
+
+for(var i=1;i<=10;i++){
+    function cb(a){
+        console.log(a);
+    };
+    setTimeout(cb,2000*i,i);
 }
