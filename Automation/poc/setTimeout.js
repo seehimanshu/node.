@@ -42,9 +42,18 @@
 //     outer(i);
 // }
 
-for(var i=1;i<=10;i++){
-    function cb(a){
-        console.log(a);
-    };
-    setTimeout(cb,2000*i,i);
-}
+// for(var i=1;i<=10;i++){
+//     function cb(a){
+//         console.log(a);
+//     };
+//     setTimeout(cb,2000*i,i);
+// }
+
+console.log("before");
+setTimeout(function(){
+    console.log("time over");
+},5000);
+fetch ("https://jsonplaceholder.typicode.com/todos/1")
+.then(function(response){response.json()}) // when a promise is returned, it creates a promise and then return it , which is obviously of fuflfilled state
+.then(function(json){console.log(json);});
+console.log("after");
